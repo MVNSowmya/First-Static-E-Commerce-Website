@@ -1,0 +1,189 @@
+<style>
+
+ * {
+     margin: 0px;
+     padding: 0px;
+ }
+ 
+ body {
+        font-family: verdana;
+        background-color: pink;
+        padding: 50px;
+  }
+
+ h1 {
+       text-align: center;
+       border-bottom: 2px solid blue;
+       margin-bottom: 50px;
+   }
+ ul#navmenu, ul.sub1, ul.sub2 {
+       list-style-type: none;
+       font-size: 9pt;
+       position: absolute;
+       z-index: 11;
+  }
+ 
+ ul#navmenu li{
+    
+    width: 130px;
+    text-align: center;
+    position: relative;
+    float: left;
+    margin-right: 4px;
+ }
+
+ ul#navmenu a{
+    text-decoration: none;
+    display: block;
+    width:130px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+ 
+ ul#navmenu .sub1 a {
+         margin-top: 5px;
+    } 
+ ul#navmenu .sub2 a{
+         margin-left: 10px;
+}
+ ul#navmenu li:hover > a {
+         background-color: #CFC;
+ }
+ ul#navmenu li:hover a:hover {
+         background-color: #FF0;
+   }
+ ul#navmenu ul.sub1 {
+         display: none;
+         position: absolute;
+         top: 26px;
+         left: 0px;
+  }
+  ul#navmenu ul.sub2 {
+         display: none;
+         position: absolute;
+         top: 0px;
+         left: 90px;
+  }
+ ul#navmenu li:hover .sub1 {
+        display: block;
+      }
+ ul#navmenu .sub1 li:hover .sub2 {
+        display: block;
+      }
+ .darrow {
+       font-size: 11pt;
+       position: absolute;
+       top: 5px;
+       right: 4px;
+ }
+ .rarrow {
+       font-size: 9pt;
+       position: absolute;
+       top: 9px;
+       right: 4px;
+}
+
+ input[type=text]{
+      width: 90%;
+      padding :12px;
+      font-family: arial;
+      font-size: 17px;
+      border: 1px solid #0076a3;
+      border-right: 0;
+      border-radius: 5px 0 0 5px;
+      font-style: italic;
+ }
+ 
+ input[type=submit]{
+      position: absolute;
+      padding: 12px;
+      width:8%;
+      font-family: arial;
+      font-size:17px;
+      text-shadow: 0 0 1px #000;
+      cursor: pointer;
+      text-align: center;
+      color: #fff;
+      border-right:0;
+      background: linear-gradient(#00adee,#0078a5);
+      border: 1px solid #0076a3;
+}
+
+input[type=submit]:hover{
+       background:linear-gradient(#0095cc,#00678e);
+}
+input[type=text]:focus,input[type=submit]:focus {
+      outline:none;
+  }
+
+ @keyframes slider {
+         0%{
+            left: 0;
+         }
+         20%{
+            left: 0;
+         }
+         25%{
+           left: -100%; 
+         }
+         45%{ 
+           left: -100%; 
+         }
+         50%{
+            left: -200%;
+         }
+         70%{
+            left: -200%;
+         }
+         75%{
+            left: -300%;
+         }
+         95%{
+            left: -300%;
+         }
+         100%{
+            left: -400%;
+         }
+}
+
+#slider{
+    overflow: hidden;
+}
+
+#slider figure img{
+     width:20%;
+     float:left;
+}  
+#slider figure{
+    position:relative;
+    width:500%;
+    margin:0;
+    left:0;
+    animation: 20s slider infinite;
+}
+div.gallery {
+    margin: 5px;
+    border: 1px solid green;
+    float: left;
+    width: 400px;
+    display: block;
+}
+
+div.gallery:hover {
+    border: 1px solid yellow;
+}
+
+div.gallery img {
+    width: 100%;
+    height: 50%;
+}
+div.desc {
+    padding: 15px;
+    text-align: center;
+    color: blue;
+    font-family: purisa;
+}
+</style>

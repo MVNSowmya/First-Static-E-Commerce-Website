@@ -1,0 +1,43 @@
+<html>
+<head>
+<style>
+body {
+     background-color: pink;
+}
+div.gallery {
+    margin: 5px;
+    border: 1px solid green;
+    float: left;
+    width: 400px;
+    display: block;
+}
+
+div.gallery:hover {
+    border: 1px solid yellow;
+}
+
+div.gallery img {
+    width: 100%;
+    height: 50%;
+}
+div.desc {
+    padding: 15px;
+    text-align: center;
+    color: blue;
+    font-family: purisa;
+}
+</style>
+</head>
+<body>
+<div class="gallery">
+  <a target="_blank" href="lenovo1.jpg">
+    <img src="lenovo1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Lenovo Moto X Force - Black - 16GB Price:7999</div>
+ 
+</div>
+<p>
+The Lenovo Moto X Force mobile features a 5.4" (13.72 cm) display with a screen resolution of 1440 x 2560 pixels and runs on Android v5.1.1 (Lollipop) operating system. The device is powered by Octa core, 2 GHz, ARM Cortex A57 processor paired with 3 GB of RAM. As far as the battery is concerned it has 3760 mAh. Over that, as far as the rear camera is concerned this mobile has a 21 MP camera Exmor-RS CMOS Sensor supporting a resolution of 5288 x 3968 Pixels and the front snapper is powered by a Exmor-RS CMOS Sensor. Other sensors include Light sensor, Proximity sensor, Accelerometer, Compass, Gyroscope.
+</p>
+</body>
+<html>

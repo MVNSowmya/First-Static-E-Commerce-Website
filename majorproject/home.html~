@@ -1,0 +1,903 @@
+<html>
+<head>
+<title> Home Page> </title>
+<link rel="stylesheet" type="text/css" href="home.css">
+<script>
+//create array that will hold all ordered products
+    var shoppingCart = [];
+
+    //this function manipulates DOM and displays content of our shopping cart
+    function displayShoppingCart(){
+        var orderedProductsTblBody=document.getElementById("orderedProductsTblBody");
+        //ensure we delete all previously added rows from ordered products table
+        while(orderedProductsTblBody.rows.length>0) {
+            orderedProductsTblBody.deleteRow(0);
+        }
+
+        //variable to hold total price of shopping cart
+        var cart_total_price=0;
+        //iterate over array of objects
+        for(var product in shoppingCart){
+            //add new row      
+            var row=orderedProductsTblBody.insertRow();
+            //create three cells for product properties 
+            var cellName = row.insertCell(0);
+            var cellDescription = row.insertCell(1);
+            var cellPrice = row.insertCell(2);
+            cellPrice.align="right";
+            //fill cells with values from current product object of our array
+            cellName.innerHTML = shoppingCart[product].Name;
+            cellDescription.innerHTML = shoppingCart[product].Description;
+            cellPrice.innerHTML = shoppingCart[product].Price;
+            cart_total_price+=shoppingCart[product].Price;
+        }
+        //fill total cost of our shopping cart 
+        document.getElementById("cart_total").innerHTML=cart_total_price;
+    }
+
+
+    function AddtoCart(name,description,price){
+       //Below we create JavaScript Object that will hold three properties you have mentioned:    Name,Description and Price
+       var singleProduct = {};
+       //Fill the product object with data
+       singleProduct.Name=name;
+       singleProduct.Description=description;
+       singleProduct.Price=price;
+       //Add newly created product to our shopping cart 
+       shoppingCart.push(singleProduct);
+       //call display function to show on screen
+       displayShoppingCart();
+
+    } 
+ 
+   function Removeitem(name,description,price){
+       
+            for(var i in shoppingCart) {
+                if(shoppingCart[i].Name===name){
+                   shoppingCart[i].Name=null;
+                   shoppingCart[i].Description=null;
+                   shoppingCart[i].Price=null;
+                   break;
+                }
+             
+           }
+       displayShoppingCart();
+                     
+    } 
+ 
+</script>
+</head>
+<body>
+<h3><a href="#mycart">My Cart</a></h3>
+<h3><a href="mp.html">Log Out</a></h3>    
+<div class="main">
+   <form>
+          <input type="text" name="search" placeholder="Search Here...">
+<input type="submit" value="Search">
+</form>
+</div>
+
+<ul id="navmenu">
+     <li><a href="#">Electronics</a><span class="darrow">&#9660;</span>
+          <ul class="sub1">
+             <li><a href="#">Mobiles & Accessories</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#Mi">Mi</a></li>
+                     <li><a href="#Lenovo">Lenovo</a></li>                     
+                 </ul>
+             </li>
+             <li><a href="#">Laptops & Accessories</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#Lenovo">Lenovo</a></li>
+                     <li><a href="#Dell">Dell</a></li>                     
+                 </ul>
+             </li>
+             <li><a href="#">Kitchen Appliances</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#ovens">Microwave Ovens</a></li>
+                     <li><a href="#cookers">Electric Cookers</a></li>
+                     <li><a href="#mixers">Juicers & Mixers</a></li>
+                 </ul>
+             </li>
+         </ul>
+     </li>
+     <li><a href="#menwomen">Men & Women</a><span class="darrow">&#9660;</span>
+         <ul class="sub1">
+             <li><a href="#">Clothing</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#ethinic">Ethnic Wear</a></li>
+                     <li><a href="#western">Western Wear</a></li>                   
+                 </ul>
+             </li>
+             <li><a href="#">Accessories</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#bags">Backpacks & Bags</a></li>
+                     <li><a href="#sandals">Sandals</a></li>
+                     <li><a href="#watches">Watches</a></li>
+                 </ul>
+             </li>
+             <li><a href="#">Beauty Care</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#jewellery">Artificial Jewellery</a></li>                     
+                     <li><a href="#makeup">Make Up</a></li>
+                 </ul>
+             </li>
+         </ul>
+     </li>
+     <li><a href="#babykids">Baby & Kids</a><span class="darrow">&#9660;</span>
+         <ul class="sub1">
+             <li><a href="#">Clothing</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#ethnic">Ethnic Wear</a></li>
+                     <li><a href="#westerns">Western Wear</a></li>                   
+                 </ul>
+             </li>
+             <li><a href="#">Accessories</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#toys">Toys</a></li>
+                     <li><a href="#sandal">Sandals</a></li>
+                     <li><a href="#watch">Watches</a></li>
+                 </ul>
+             </li>
+             <li><a href="#">Beauty Care</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#jewel">Artificial Jewellery</a></li>                     
+                     <li><a href="#makeups">Make Up</a></li>
+                 </ul>
+             </li>
+         </ul>
+     </li>
+     <li><a href="#">Home & Furniture</a><span class="darrow">&#9660;</span>
+         <ul class="sub1">
+             
+             <li><a href="#">Furniture & Furnishing</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#beds">Beds & Bedsheets</a></li>
+                     <li><a href="#pillows">Pillows & Cushions</a></li>
+                     <li><a href="#tables">Tables & Chairs</a></li>
+                 </ul>
+             </li>
+             <li><a href="#">Home Decor</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#shelves">Wall Shelves</a></li>
+                     <li><a href="#lamps">Decoratives Lamps</a></li>
+                     <li><a href="#clocks">Clocks</a></li>
+                 </ul>
+             </li>
+         </ul>
+     </li>
+    
+     <li><a href="#">Books & Stationary</a><span class="darrow">&#9660;</span>
+        <ul class="sub1">
+             <li><a href="#">Academic</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#textbooks">TextBooks</a></li>
+                     <li><a href="#ce">Competitive Exams</a></li>                    
+                 </ul>
+             </li>
+             <li><a href="#">Novels</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">
+                     <li><a href="#mystery">Mystery</a></li>
+                     <li><a href="#literature">Literature</a></li>
+                     <li><a href="#comedy">Comedy</a></li>
+                 </ul>
+             </li>
+             <li><a href="#">Stationary</a><span class="rarrow">&#9654;</span>
+                 <ul class="sub2">                     
+                     <li><a href="#desk">Desk Organizers</a></li>
+                     <li><a href="#books">Notebooks</a></li>
+                 </ul>
+             </li>
+         </ul>
+     </li>
+</ul>
+<br><br><br>
+
+<div id="slider">
+    <figure>
+    
+     <img src="1.png">
+     <img src="2.jpg">
+     <img src="3.png">
+     <img src="4.jpg">
+     <img src="5.png">
+     
+    </figure>
+</div>
+
+<br><br><br>
+<h2><a name="Mi"> Mi Phones and Accessories</a></h2>
+<div class="gallery">
+  <a target="_blank" href="mi1.html">
+    <img src="mi1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Redmi 5 - Black - 16GB  Price:7999</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('RedMi 5','Black,16GB',7999)"/>
+ <input type="button" value="x" onclick="Removeitem('RedMi 5','Black,16GB',7999)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="mi2.html">
+    <img src="mi2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Mi Bluetooth - White  Price:3999</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Mi Bluetooth','White',3999)"/>
+ <input type="button" value="x" onclick="Removeitem('Mi Bluetooth','White',3999)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="Lenovo">Lenovo Phones and Accessories</a></h2>
+<div class="gallery">
+  <a target="_blank" href="lenovo1.html">
+    <img src="lenovo1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Lenovo Moto X Force - Black - 16GB  Price:7999</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Lenovo Phone','Black,16GB',7999)"/>
+ <input type="button" value="x" onclick="Removeitem('Lenovo Phone','Black,16GB',7999)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="lenovo2.html">
+    <img src="lenovo2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Lenovo Case - White  Price:3999</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Lenovo Case','White',3999)"/>
+<input type="button" value="x" onclick="Removeitem('Lenovo Case','White',3999)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="Lenovo">Lenovo Laptops and Accessories</a></h2>
+<div class="gallery">
+  <a target="_blank" href="lenovol1.html">
+    <img src="lenovol1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Lenovo 80XV00LPIN 15.6-inch - Black  Price:20490</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Lenovo Laptop','Black,4GB,1TB',20490)"/>
+<input type="button" value="x" onclick="Removeitem('Lenovo Laptop','Black,4GB,1TB',20490)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="lenovol2.html">
+    <img src="lenovol2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Lenovo Laptop Charger - Black  Price:500</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Lenovo Laptop Charger','Black',500)"/>
+<input type="button" value="x" onclick="Removeitem('Lenovo Laptop Charger','Black',500)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="Dell">Dell Laptops and Accessories</a></h2>
+<div class="gallery">
+  <a target="_blank" href="dell1.html">
+    <img src="dell1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Dell Inspiron Core i3 6th Gen - Black  Price:25490</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Dell Laptop','Black,4GB,1TB',25490)"/>
+<input type="button" value="x" onclick="Removeitem('Dell Laptop','Black,4GB,1TB',25490)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="dell2.html">
+    <img src="dell2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Dell Laptop Charger - Black  Price:1050</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Dell Laptop Charger','Black',1050)"/>
+<input type="button" value="x" onclick="Removeitem('Dell Laptop Charger','Black',1050)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="ovens">Microwave Ovens</a></h2>
+<div class="gallery">
+  <a target="_blank" href="oven1.html">
+    <img src="oven1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Bajaj MTBX - 20L - Black  Price:4390</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Bajaj Microwave Oven','Black',4390)"/>
+<input type="button" value="x" onclick="Removeitem('Bajaj Microwave Oven','Black',4390)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="oven2.html">
+    <img src="oven2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Samsung 23 L Solo Microwave Oven - Black  Price:6290</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Samsung Microwave Oven','Black',6290)"/>
+<input type="button" value="x" onclick="Removeitem('Samsung Microwave Oven','Black',6290)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="cookers">Electric Cookers</a></h2>
+<div class="gallery">
+  <a target="_blank" href="cooker1.html">
+    <img src="cooker1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Prestige Delight PRWO 1.0-(400 watt) 1-Litre   Price:1299</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Prestige Electric Cooker','White',1299)"/>
+<input type="button" value="x" onclick="Removeitem('Prestige Electric Cooker','White',1299)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="cooker2.html">
+    <img src="cooker2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Panasonic SR-Y22FHS 750-Watt Automatic   Price:3151</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Panasonic Electric Cooker','Red',3151)"/>
+<input type="button" value="x" onclick="Removeitem('Panasonic Electric Cooker','Red',3151)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="mixers">Juicers & Mixers</a></h2>
+<div class="gallery">
+  <a target="_blank" href="juicer.html">
+    <img src="juicer.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Philips Viva Collection HR1863/20 Price:7299</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Prestige Electric Cooker','Black',7299)"/>
+<input type="button" value="x" onclick="Removeitem('Prestige Electric Cooker','Black',7299)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="mixer.html">
+    <img src="mixer.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Bajaj Classic 750W   Price:2748</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Panasonic Electric Cooker','Red',2748)"/>
+<input type="button" value="x" onclick="Removeitem('Panasonic Electric Cooker','Red',2748)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="menwomen">Men & Women</a></h2>
+<h2><a name="ethinic">Ethinic Wear</a></h2>
+<div class="gallery">
+  <a target="_blank" href="men.html">
+    <img src="men.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Trendy Yellow Pathani Price:1999</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Pathani','Yellow',1299)"/>
+<input type="button" value="x" onclick="Removeitem('Pathani','Yellow',1299)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="women.html">
+    <img src="women.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Firoji Color Silk Embroidered Square Neck Circular Anarkali Suit Price:3292</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Anarkali Suit','Semistitched',3292)"/>
+<input type="button" value="x" onclick="Removeitem('Anarkali Suit','Semistitched',3292)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="western">Western Wear</a></h2>
+<div class="gallery">
+  <a target="_blank" href="man.html">
+    <img src="man.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Wrangler Checkered Casual Shirt Price:1746</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Checkered Shirt','Blue',1746)"/>
+<input type="button" value="x" onclick="Removeitem('Checkered Shirt','Blue',1746)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="woman.html">
+    <img src="woman.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Fashion Top Price:249</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Fashion Top','Brown',249)"/>
+<input type="button" value="x" onclick="Removeitem('Fashion Top','Brown',249)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="bags">Backpacks & Bags</a></h2>
+<div class="gallery">
+  <a target="_blank" href="bag1.html">
+    <img src="bag1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Wildcraft - 45L Price:1999</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Wildcraft Backpack','Black,45L',1999)"/>
+<input type="button" value="x" onclick="Removeitem('Wildcraft Backpack','Black,45L',1999)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="bag2.html">
+    <img src="bag2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Flower and Butterfly Print Flap Bag Price:397</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Flap Bag','White',397)"/>
+<input type="button" value="x" onclick="Removeitem('Flap Bag','White',397)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="sandals">Sandals</a></h2>
+<div class="gallery">
+  <a target="_blank" href="sandal1.html">
+    <img src="sandal1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Puma Men's Sports Sandal Price:959</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Mens Sandal','Black',959)"/>
+<input type="button" value="x" onclick="Removeitem('Mens Sandal','Black',959)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="sandal2.html">
+    <img src="sandal2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Super Matresses Women Sports Sandal Price:198</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Women Sandal','Grey,Blue',198)"/>
+<input type="button" value="x" onclick="Removeitem('Women Sandal','Grey,Blue',198)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="watches">Watches</a></h2>
+<div class="gallery">
+  <a target="_blank" href="watch1.html">
+    <img src="watch1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Casio Smart Outdoor Smart Watch Price:19995</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Casio Smartwatch','Black',19995)"/>
+<input type="button" value="x" onclick="Removeitem('Casio Smartwatch','Black',19995)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="watch2.html">
+    <img src="watch2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Women's Fastrack Digital Watch Price:1212</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Womens Fastrack Watch','Digital,Grey',1212)"/>
+<input type="button" value="x" onclick="Removeitem('Womens Fastrack Watch','Digital,Grey',1212)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="jewellery">Artificial Jewellery</a></h2>
+<div class="gallery">
+  <a target="_blank" href="jewel1.html">
+    <img src="jewel1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Green String Necklace Price:550</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('String Necklace','Green',550)"/>
+<input type="button" value="x" onclick="Removeitem('String Necklace','Green',550)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="jewel2.html">
+    <img src="jewel2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Crimson Zirconia Sterling Necklace  Price:1250</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Sterling Necklace','Red,Blue',1250)"/>
+<input type="button" value="x" onclick="Removeitem('Sterling Necklace','Red,Blue',1250)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="makeup">Make Up</a></h2>
+<div class="gallery">
+  <a target="_blank" href="makeup1.html">
+    <img src="makeup1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Makeup Revolution HD Pro Eyes & Brows Price:2400</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Makeup Revolution HD Pro Eyes & Brows','28shades',2400)"/>
+<input type="button" value="x" onclick="Removeitem('Makeup Revolution HD Pro Eyes & Brows','28shades',2400)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="makeup2.html">
+    <img src="makeup2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Nykaa So Matte Lipstick - Taupe Thrill 12 M  Price:399</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Nykaa So Matte Lipstick-Taupe Thrill','Light Pink',399)"/>
+<input type="button" value="x" onclick="Removeitem('Nykaa So Matte Lipstick-Taupe Thrill','Light Pink',399)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="babykids">Baby & Kids</a></h2>
+<h2><a name="ethnic">Ethnic Wear</a></h2>
+<div class="gallery">
+  <a target="_blank" href="kid1.html">
+    <img src="kid1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Purva Art Lehenga Choli Price:1255</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Lehenga Choli','Pink',1255)"/>
+<input type="button" value="x" onclick="Removeitem('Lehenga Choli','Pink',1255)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="kid2.html">
+    <img src="kid2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">AJ Dezines Sherwani Price:2449</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Sherwani','Blue',2449)"/>
+<input type="button" value="x" onclick="Removeitem('Sherwani','Blue',2449)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="westerns">Western Wear</a></h2>
+<div class="gallery">
+  <a target="_blank" href="kid3.html">
+    <img src="kid3.jpg" alt="Click Here">
+  </a>
+  <div class="desc">YB DNMX Stripes TShirt Price:349</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Stripes TShirt','Blue',349)"/>
+<input type="button" value="x" onclick="Removeitem('Stripes TShirt','Blue',349)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="kid4.html">
+    <img src="kid4.jpg" alt="Click Here">
+  </a>
+  <div class="desc">RIO Girls Tunick Price:489</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Tunick','White',489)"/>
+<input type="button" value="x" onclick="Removeitem('Tunick','White',489)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="toys">Toys</a></h2>
+<div class="gallery">
+  <a target="_blank" href="toy1.html">
+    <img src="toy1.jpeg" alt="Click Here">
+  </a>
+  <div class="desc">Hot Wheels Price:246</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Hot Wheels','3Pack',246)"/>
+<input type="button" value="x" onclick="Removeitem('Hot Wheels','3Pack',246)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="toy2.html">
+    <img src="toy2.jpeg" alt="Click Here">
+  </a>
+  <div class="desc">Fisher Price Rock A Stack Price:201</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Stack','6Number',201)"/>
+<input type="button" value="x" onclick="Removeitem('Stack','6Number',201)"/>
+</div><h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="sandal">Sandals</a></h2>
+<div class="gallery">
+  <a target="_blank" href="kid5.html">
+    <img src="kid5.jpg" alt="Click Here">
+  </a>
+  <div class="desc">CROCS Sandal Price:795</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Mens kid Sandal','Navy',795)"/>
+<input type="button" value="x" onclick="Removeitem('Mens kid Sandal','Navy',795)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="kid6.html">
+    <img src="kid6.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Disney Princess Glittery Party Wear Sandal Price:1015</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Women kid Sandal','White',1015)"/>
+<input type="button" value="x" onclick="Removeitem('Women kid Sandal','White',1015)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="watch">Watches</a></h2>
+<div class="gallery">
+  <a target="_blank" href="kid7.html">
+    <img src="kid7.jpg" alt="Click Here">
+  </a>
+  <div class="desc">BLUTECH Analogue-Digital Black Dial Watch Price:280</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Mens Kid Watch','Black',280)"/>
+<input type="button" value="x" onclick="Removeitem('Mens Kid Watch','Black',280)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="kid8.html">
+    <img src="kid8.jpg" alt="Click Here">
+  </a>
+  <div class="desc">OpenDeal Analogue White Dial Watch Price:175</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Womens kid Watch','Pink',175)"/>
+<input type="button" value="x" onclick="Removeitem('Womens kid Watch','Pink',175)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="jewel">Artificial Jewellery</a></h2>
+<div class="gallery">
+  <a target="_blank" href="kid9.html">
+    <img src="kid9.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Steffi Love Girls Necklace And Bracelet  Price:97</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Baby Bracelet-Necklace','Pink',97)"/>
+<input type="button" value="x" onclick="Removeitem('Baby Bracelet-Necklace','Pink',97)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="kid10.html">
+    <img src="kid10.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Magic Needles Baby Anklets  Price:224</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Baby Anklets','Pink',224)"/>
+<input type="button" value="x" onclick="Removeitem('Baby Anklets','Pink',224)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="makeups">Make Up</a></h2>
+<div class="gallery">
+  <a target="_blank" href="kid11.html">
+    <img src="kid11.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Cindrella Make Up kit Price:305</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Cindrella Make Up','Kit',305)"/>
+<input type="button" value="x" onclick="Removeitem('Cindrella Make Up','Kit',305)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="kid12.html">
+    <img src="kid12.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Maybelline New York Gigi Collection Kit Price:3017</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Maybelline New York Gigi Collection Kit','Multiple Shades',3017)"/>
+<input type="button" value="x" onclick="Removeitem('Maybelline New York Gigi Collection Kit','Multiple Shades',3017)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="beds">Beds & Bedsheets</a></h2>
+<div class="gallery">
+  <a target="_blank" href="bed1.html">
+    <img src="bed1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Melange King Bed with Hydraulic Storage Price:43450</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Melange King Bed','Double Bed',43450)"/>
+<input type="button" value="x" onclick="Removeitem('Melange King Bed','Double Bed',43450)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="bed2.html">
+    <img src="bed2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Faboulous Three Printed Single Bed Sheet-Set Of 2 Pcs Price:499</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Faboulous Three Printed Single Bed Sheet','Set of 2',499)"/>
+<input type="button" value="x" onclick="Removeitem('Faboulous Three Printed Single Bed Sheet','Set of 2',499)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="pillows">Pillows & Cushions</a></h2>
+<div class="gallery">
+  <a target="_blank" href="pillow1.html">
+    <img src="pillow1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Sleepwell Umang Pillow Pack of 2 Price:478</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Sleepwell Umang Pillow','Pack of 2',478)"/>
+<input type="button" value="x" onclick="Removeitem('Sleepwell Umang Pillow','Pack of 2',478)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="pillow2.html">
+    <img src="pillow2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">AURORA Printed Filled Cushion Price:599</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('AURORA Printed Filled Cushion','Lord Buddha Imagery',599)"/>
+<input type="button" value="x" onclick="Removeitem('AURORA Printed Filled Cushion','Lord Buddha Imagery',599)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="tables">Tables & Chairs</a></h2>
+<div class="gallery">
+  <a target="_blank" href="table1.html">
+    <img src="table1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Spacewood Engineered Wood Coffee Table  Price:2478</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Spacewood Coffee Table','Vermount',2478)"/>
+<input type="button" value="x" onclick="Removeitem('Spacewood Coffee Table','Vermount',2478)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="table2.html">
+    <img src="table2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Addison Adjusting Chair Price:10650</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Addison Adjusting Chair','Solid Wood',10650)"/>
+<input type="button" value="x" onclick="Removeitem('Addison Adjusting Chair','Solid Wood',10650)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="shelves">Wall Shelves</a></h2>
+<div class="gallery">
+  <a target="_blank" href="shelf1.html">
+    <img src="shelf1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Inset Wall Shelf Set - 2pcs  Price:1950</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Inset Wall Shelf Set -2pcs','Brown',1950)"/>
+<input type="button" value="x" onclick="Removeitem('Inset Wall Shelf Set -2pcs','Brown',1950)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="shelf2.html">
+    <img src="shelf2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Chicago Wall Cube Price:1195</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Chicago Wall Cube','Wenge Shade',1195)"/>
+<input type="button" value="x" onclick="Removeitem('Chicago Wall Cube','Wenge Shade',1195)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="lamps">Decorative Lamps</a></h2>
+<div class="gallery">
+  <a target="_blank" href="lamp1.html">
+    <img src="lamp1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Artesia Wooden Small Decorative Electric Lamp  Price:499</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Artesia Wooden Small Decorative Lamp','Blue',499)"/>
+<input type="button" value="x" onclick="Removeitem('Artesia Wooden Small Decorative Lamp','Blue',499)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="lamp2.html">
+    <img src="lamp2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">R@DIANT Antique Vintage Edison Tungsten Decorative Ceiling and pendent lamp  Price:899</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Decorative Ceiling and pendent lamp ','Black',899)"/>
+<input type="button" value="x" onclick="Removeitem('Decorative Ceiling and pendent lamp ','Black',899)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="clocks">Clocks</a></h2>
+<div class="gallery">
+  <a target="_blank" href="clock1.html">
+    <img src="clock1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Estelle Antique Look Wall Clock  Price:399</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Estelle Antique Look Wall Clock','Plastic',399)"/>
+<input type="button" value="x" onclick="Removeitem('Estelle Antique Look Wall Clock','Plastic',399)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="clock2.html">
+    <img src="clock2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Casablanca Loren Dual Face Antique Station Wall Clock  Price:1799</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Casablanca Loren Antique Station Wall Clock ','Metal',1799)"/>
+<input type="button" value="x" onclick="Removeitem('Casablanca Loren Antique Station Wall Clock ','Metal',1799)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="textbooks">Textbooks</a></h2>
+<div class="gallery">
+  <a target="_blank" href="tb1.html">
+    <img src="tb1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Data Structures Using C 1st Edition - Tennenbum  Price:263</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Data Structures Using C-Tennenbum ','Edition 1',263)"/>
+<input type="button" value="x" onclick="Removeitem('Data Structures Using C-Tennenbum ','Edition 1',263)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="tb2.html">
+    <img src="tb2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Digital Logic & Computer Design 1st Edition - Morris Mano Price:580</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Digital Logic & Computer Design-Morris Mano ','Edition 1',580)"/>
+<input type="button" value="x" onclick="Removeitem('Digital Logic & Computer Design-Morris Mano ','Edition 1',580)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="ce">Competitive Exams</a></h2>
+<div class="gallery">
+  <a target="_blank" href="ce1.html">
+    <img src="ce1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">EAMCET Engineering 17 Year's Solved Papers (2001 - 2017)   Price:300</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('EAMCET Engineering 17 Years Solved Papers','(2001 - 2017)',300)"/>
+<input type="button" value="x" onclick="Removeitem('EAMCET Engineering 17 Years Solved Papers','(2001 - 2017)',300)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="ce2.html">
+    <img src="ce2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">GATE Computer Science and Information Technology 2019 Price:849</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('GATE CSE & IT','2019',849)"/>
+<input type="button" value="x" onclick="Removeitem('GATE CSE & IT','2019',849)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="mystery">Mystery</a></h2>
+<div class="gallery">
+  <a target="_blank" href="mystery1.html">
+    <img src="mystery1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">The Perfect Murder - Ruskin Bond Price:131</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('The Perfect Murder','Ruskin Bond',131)"/>
+<input type="button" value="x" onclick="Removeitem('The Perfect Murder','Ruskin Bond',131)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="mystery2.html">
+    <img src="mystery2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">The Swastika Killer - Mahendra Jakhar Price:310</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('The Swastika Killer','Mahendra Jakhar',310)"/>
+<input type="button" value="x" onclick="Removeitem('The Swastika Killer','Mahendra Jakhar',310)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="literature">Literature</a></h2>
+<div class="gallery">
+  <a target="_blank" href="l1.html">
+    <img src="l1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Black Holes - The Reith Lectures - Stephen Hawking Price:199</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Black Holes-The Reith Lectures','Stephen Hawking',199)"/>
+<input type="button" value="x" onclick="Removeitem('Black Holes-The Reith Lectures','Stephen Hawking',199)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="comedy">Comedy</a></h2>
+<div class="gallery">
+  <a target="_blank" href="c1.html">
+    <img src="c1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">It Had To Be You - Keris Stainton Price:199</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('It Had To Be You','Keris Stainton',199)"/>
+<input type="button" value="x" onclick="Removeitem('It Had To Be You','Keris Stainton',199)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="c2.html">
+    <img src="c2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Don't Stop Me Now - Colleen Coleman Price:199</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Dont Stop Me Now','Colleen Coleman',199)"/>
+<input type="button" value="x" onclick="Removeitem('Dont Stop Me Now','Colleen Coleman',199)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="desk">Desk Organizers</a></h2>
+<div class="gallery">
+  <a target="_blank" href="desk1.html">
+    <img src="desk1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Kebica 6 Compartments Faux Leather Desk Organizer Price:1599</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Kebica Faux Leather Desk Organizer','Brown',1599)"/>
+<input type="button" value="x" onclick="Removeitem('Kebica Faux Leather Desk Organizer','Brown',1599)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="desk2.html">
+    <img src="desk2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Callas Metal Mesh Desk Organizer Price:598</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Callas Metal Mesh Desk Organizer','Black LD 708-05',598)"/>
+<input type="button" value="x" onclick="Removeitem('Callas Metal Mesh Desk Organizer','Black LD 708-05',598)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2><a name="books">Notebooks</a></h2>
+<div class="gallery">
+  <a target="_blank" href="book1.html">
+    <img src="book1.jpg" alt="Click Here">
+  </a>
+  <div class="desc">AmazonBasics Classic Notebook, Squared - (130mm x 210mm) - 240 pages Price:299</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('AmazonBasics Classic Notebook','(130mm x 210mm) - 240 pages',299)"/>
+<input type="button" value="x" onclick="Removeitem('AmazonBasics Classic Notebook','(130mm x 210mm) - 240 pages',299)"/>
+</div>
+<div class="gallery">
+  <a target="_blank" href="book2.html">
+    <img src="book2.png" alt="Click Here">
+  </a>
+  <div class="desc">Blue Photo Upload Photo Notebook Price:200</div>
+  <input type="button" value="Add to cart" onclick="AddtoCart('Photo Upload Photo Notebook','(130mm x 210mm) - 200 pages',200)"/>
+<input type="button" value="x" onclick="Removeitem('Photo Upload Photo Notebook','(130mm x 210mm) - 200 pages',200)"/>
+</div>
+<h3><a href="#navmenu">Go to top</a></h3>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!shopping cart>
+<h2><a name="mycart">My Cart</a></h2>
+<img src="mycart.jpg" alt="smartbuy icon" width="100" height="100" align="right">
+<td valign="top">
+            <table cellpadding="4" cellspacing="4" border="1" id="orderedProductsTbl">
+                <thead>
+                    <tr>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            Description
+                        </td>
+                        <td>
+                            Price
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="orderedProductsTblBody">
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" align="right" id="cart_total">
+                           Total
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </td>
+    </tr>
+</table>
+<br>
+<h3><a href="placeorder.html"> Place Order </a><h3>
+<h3><a href="#navmenu">Go to top</a></h3>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+<style>
+body {
+     background-color: pink;
+}
+div.gallery {
+    margin: 5px;
+    border: 1px solid green;
+    float: left;
+    width: 400px;
+    display: block;
+}
+
+div.gallery:hover {
+    border: 1px solid yellow;
+}
+
+div.gallery img {
+    width: 100%;
+    height: 50%;
+}
+div.desc {
+    padding: 15px;
+    text-align: center;
+    color: blue;
+    font-family: purisa;
+}
+</style>
+</head>
+<body>
+<div class="gallery">
+  <a target="_blank" href="lenovol2.jpg">
+    <img src="lenovol2.jpg" alt="Click Here">
+  </a>
+  <div class="desc">Lenovo Laptop Charger - Black Price:500</div>
+ 
+</div>
+<p>
+Output Voltage: 20 V<br><br>
+Power Consumption: 65 W<br><br>
+Overload Protection<br><br>
+Power Cord Included<br><br>
+Compatible with Lenovo notebooks with rectangular “slim tip” common power plug. Also compatible with U330p/U330 Touch U430p/U430 Touch S500/S500 Touch S410 Flex/S510 Flex S410P/S510P Flex 14/Flex 15 Z710 Z410/Z510 Z510 Touch G700/G710 G400/G500 G405/G505 G410/G510 Z/G series(Lancer) G400S/G500S G405S/G505S G400S Touch/G500S Touch G410s/G510s Flex2 series(Mybo) Flex2 Pro-15(Viper 5A) B/E/N(Freelander/Discovery/Boxster) Flex 3 15XX(Camaro5) Flex 3 Pro-1580 & Edge 2-1580 Tesla(S41) & U41 & U31 Lenovo IdeaPad 500S-15ISK(U51) Gx1 Zx1 Bx1 K/M41(Macan) Systems with a CPU between 15 W and 47 W (excluding 47 W) and integrated graphics and a 15 W CPU and discrete graphics1. Performs to the same specifications as the standard 65W AC adapter that ships with the notebooks. 2. Supports independent graphics Lenovo notebooks.
+
+</p>
+</body>
+<html>

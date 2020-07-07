@@ -1,0 +1,46 @@
+<html>
+<head>
+<style>
+body {
+     background-color: pink;
+}
+div.gallery {
+    margin: 5px;
+    border: 1px solid green;
+    float: left;
+    width: 400px;
+    display: block;
+}
+
+div.gallery:hover {
+    border: 1px solid yellow;
+}
+
+div.gallery img {
+    width: 100%;
+    height: 50%;
+}
+div.desc {
+    padding: 15px;
+    text-align: center;
+    color: blue;
+    font-family: purisa;
+}
+</style>
+</head>
+<body>
+<div class="gallery">
+  <a target="_blank" href="book2.png">
+    <img src="book2.png" alt="Click Here">
+  </a>
+  <div class="desc">Blue Photo Upload Photo Notebook Price:200</div>
+  
+</div>
+<p>
+5 subject notebook with 200 college ruled, 3 hole punched; 11 x 8.5 inch sheets; 2 pack includes Black and Cobalt Blue, Lasts All Year. Guaranteed!*<br><br>
+Built Strong To Last Long; durable water resistant, plastic front cover and coated natural Kraft back cover protects notes all year; high quality paper resists ink bleed<br><br>
+Spiral Lock wire prevents coil snags; reinforced storage pockets prevent tears; Neat Sheet perforated pages tear out easily; 11 x 10 x 1.13 inches overall<br><br>
+Photo paste facility
+</p>
+</body>
+<html>
